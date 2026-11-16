@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+<!--
+Soviet 350lt drop tank
+
+-->
+  <path>Aircraft/l39/Models/stores/tank350/tank350.ac</path>
+
+  <animation>
+    <object-name>350ltTank</object-name>
+  </animation>
+
+</PropertyList>

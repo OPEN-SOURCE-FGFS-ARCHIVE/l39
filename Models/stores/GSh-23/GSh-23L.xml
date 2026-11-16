@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+<!--
+Type Automatic cannon 
+Place of origin  Soviet Union 
+Weight GSh-23L: 50 kg (110 lb) 
+Length GSh-23L: 1,537 mm (5 ft 1 in) 
+Barrel length 1,000 mm (3 ft 3 in) 
+ 
+Cartridge 23x115 mm AM-23 
+Barrels 2 
+Action Gast principle 
+Rate of fire 3,400-3,600 rounds/min 
+Muzzle velocity 715 m/s (2,350 ft/s) 
+
+-->
+  <path>Aircraft/l39/Models/stores/GSh-23/guns.ac</path>
+
+  <animation>
+    <object-name>GSh-23L</object-name>
+  </animation>
+
+</PropertyList>

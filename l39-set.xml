@@ -1,0 +1,527 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+Aero Vodochody L-39 Albatros
+Fabrice Kauffmann (fabrice.kauffmann@gmail.com)
+Compatible FGFS 1.9.1b and 2.0.0
+
+History:
+2010.02.19 - Initial version
+************************************************************************
+-->
+<PropertyList>
+<sim>
+	<description>Aero Vodochody L-39 Albatros</description>
+	<author>Fabrice KAUFFMANN, Stuart C</author>
+	<status>alpha 1.8b</status>
+	<flight-model>yasim</flight-model>
+	<aero>l39-yasim</aero>	
+
+	<startup>
+		<splash-texture>Aircraft/l39/l39-splash.png</splash-texture>
+	</startup>
+	
+	<model>
+		<path>Aircraft/l39/Models/l39.xml</path>
+		
+		<hide-lights type="int">1</hide-lights>	
+            <livery>  
+				<name type="string">Default</name>
+				<texture>default.png</texture>
+                                              
+	      </livery>
+
+	</model>
+	
+	<rating>
+<FDM type="int">4</FDM>
+<systems type="int">2</systems>
+<cockpit type="int">3</cockpit>
+<model type="int">3</model>
+</rating>
+	
+	<fuel-fraction>1.0</fuel-fraction>
+	
+	
+	<submodels>
+      <serviceable type="bool">true</serviceable>
+      <path>Aircraft/l39/Models/stores/loads.xml</path> 
+      <path>Aircraft/l39/Models/stores/pylons.xml</path>	  
+	</submodels>
+	
+	
+	<sound>
+		<audible>true</audible>
+		<path>Aircraft/l39/Sounds/l39-sound.xml</path>
+	</sound>
+	
+	<systems>
+     <autopilot>
+         <path>Aircraft/l39/Systems/autopilot5.xml</path>
+      </autopilot>
+    <electrical>
+         <path>Aircraft/Generic/generic-electrical.xml</path>
+    </electrical>	  
+	  
+      
+    </systems> 
+	
+ <help>
+   <title>L-39</title>
+    <key>
+     <name>}</name>
+     <desc>Start/Stop Engine</desc>
+   </key>
+  
+   <key>
+     <name>Ctrl+b</name>
+     <desc>Airbrake Toggle</desc>
+   </key>
+   <line> Max takeoff weight: 4,700 kg (10,362 lb)</line>
+	<line>Maximum speed: 750 km/h (405 knots, 470 mph) at 4,000 m (16,000 ft)</line>
+	
+  </help>	
+
+<hud>
+      <path n="1">Aircraft/l39/Hud/hud.xml</path>
+	  
+      <visibility n="0" type="bool">false</visibility>
+      <visibility n="1" type="bool">true</visibility>
+      <current-color>0</current-color>
+      <color>
+	<transparent type="bool">true</transparent>
+	<antialiased type="bool">true</antialiased>
+	<brightness type="float">1.0</brightness>
+	<alpha type="float">1.0</alpha>
+      </color>
+      <palette>
+	<color n="0">
+	  <red type="float">0.00</red>
+	  <green type="float">1.0</green>
+	  <blue type="float">0.00</blue>
+	</color>
+	<color n="1">
+	  <red type="float">1.0</red>
+	  <green type="float">0.0</green>
+	  <blue type="float">0.0</blue>
+	</color>
+    <color n="2">
+	  <red type="float">0.0</red>
+	  <green type="float">0.0</green>
+	  <blue type="float">1.0</blue>
+	</color>
+    <color n="3">
+	  <red type="float">1.0</red>
+	  <green type="float">1.0</green>
+	  <blue type="float">1.0</blue>
+	</color>
+      </palette>
+	 
+  <clipping>
+    <left type="double">-75</left>
+    <right type="double">70</right>
+    <top type="double">-35</top>
+    
+	  <bottom type="double">-165</bottom>
+     </clipping>
+	
+    </hud>
+	
+	<virtual-cockpit archive="y">true</virtual-cockpit>
+	
+	<chase-distance-m type="double" archive="y">-20.0</chase-distance-m>
+	
+	<menubar>
+		<default>
+			<menu n="99">
+				<label>Albatros</label>
+				<enabled type="bool">true</enabled>
+				
+				<item>
+					<label>Switch Lights On/Off</label>
+					<binding>
+						<command>property-toggle</command>
+						<property>/sim/model/hide-lights</property>
+					</binding>
+				</item>	
+                        <item>
+				<label>Select Livery</label>
+				<binding>
+					<command>nasal</command>
+					<script>aircraft.livery.dialog.open()</script>
+				</binding>
+			      </item>
+				
+			</menu>
+		</default>
+	</menubar>
+	
+	<view n="0">
+		<internal archive="y">true</internal>
+		<config>
+			<x-offset-m archive="y">0.00</x-offset-m>
+			<y-offset-m archive="y">-0.1</y-offset-m>
+			<z-offset-m archive="y">-2.75</z-offset-m>
+			<pitch-offset-deg>0</pitch-offset-deg>
+			<default-field-of-view-deg>65</default-field-of-view-deg>
+		</config>
+	</view>
+	
+	 <view n="100">
+  <name>Instructors View</name>
+  <internal archive="y">true</internal>
+	<type>lookfrom</type>
+	<config>
+	<from-model type="bool">true</from-model>
+	<from-model-idx type="int">0</from-model-idx>
+    <x-offset-m archive="y">0.00</x-offset-m>
+			<y-offset-m archive="y">0.09</y-offset-m>
+			<z-offset-m archive="y">-1.38</z-offset-m>
+	<limits>
+	   <left>
+	  <heading-max-deg>-100</heading-max-deg>
+<x-offset-threshold-deg>0</x-offset-threshold-deg>
+<x-offset-max-m>0</x-offset-max-m>
+</left>
+<right>
+<heading-max-deg>100</heading-max-deg>
+<x-offset-threshold-deg>0</x-offset-threshold-deg>
+<x-offset-max-m>0</x-offset-max-m>
+</right>
+<enabled>1</enabled>
+</limits>
+   </config>
+  </view>
+  
+   <view n="101">
+	   <name>Pilot cam</name>
+        <internal archive="y">false</internal>
+        <config>
+		 <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+         <x-offset-m archive="y">0.00</x-offset-m>
+			<y-offset-m archive="y">-0.1</y-offset-m>
+			<z-offset-m archive="y">-3.2</z-offset-m>
+          <pitch-offset-deg>0</pitch-offset-deg>
+		  <heading-offset-deg>180</heading-offset-deg>
+          <default-field-of-view-deg>95</default-field-of-view-deg>
+        </config>
+      </view>
+	
+	<view n="1">
+      <config>
+       	<roll-offset-deg archive="y">1.5</roll-offset-deg>
+      </config>
+    </view>
+
+    <view n="2">
+      <config>
+        <roll-offset-deg archive="y">1.5</roll-offset-deg>
+      </config>
+    </view>
+
+    <view n="3">
+      <config>
+        <roll-offset-deg archive="y">1.5</roll-offset-deg>
+      </config>
+    </view>
+	
+	<view n="4">
+      <config>
+        <roll-offset-deg archive="y">1.5</roll-offset-deg>
+      </config>
+    </view>
+	
+	<view n="5">
+      <config>
+        <roll-offset-deg archive="y">1.5</roll-offset-deg>
+      </config>
+    </view>
+	
+	<view n="6">
+      <config>
+        <roll-offset-deg archive="y">1.5</roll-offset-deg>
+      </config>
+    </view>
+	
+	<view n="7">
+      <config>
+        <roll-offset-deg archive="y">1.5</roll-offset-deg>
+      </config>
+    </view>
+	
+<weight n="0">
+<name>pylonL1</name>
+<weight-lb>0</weight-lb>
+<selected>none</selected>
+<opt>
+<name>none</name>
+<lbs>0</lbs>
+</opt>
+
+<opt>
+<name>R-60</name>
+<lbs>96</lbs>
+</opt>
+
+</weight>
+
+<weight n="1">
+<name>pylonL2</name>
+<tank>7</tank>
+<weight-lb>0</weight-lb>
+<selected>none</selected>
+<opt>
+<name>none</name>
+<lbs>0</lbs>
+</opt>
+
+<opt>
+<name>150ltTank</name>
+<lbs>70.3</lbs>
+<gals>39.75</gals>
+</opt>
+
+<opt>
+<name>350ltTank</name>
+<lbs>90</lbs>
+<gals>92.5</gals>
+</opt>
+
+</weight>
+
+<weight n="2">
+<name>pylonC</name>
+<weight-lb>0</weight-lb>
+<selected>none</selected>
+<opt>
+<name>none</name>
+<lbs>0</lbs>
+</opt>
+
+<opt>
+<name>GSh-23L</name>
+<lbs>110</lbs>
+</opt>
+
+</weight>	
+
+<weight n="3">
+<name>pylonR2</name>
+<tank>8</tank>
+<weight-lb>0</weight-lb>
+<selected>none</selected>
+<opt>
+<name>none</name>
+<lbs>0</lbs>
+</opt>	
+
+<opt>
+<name>150ltTank</name>
+<lbs>70.3</lbs>
+<gals>39.75</gals>
+</opt>
+
+<opt>
+<name>350ltTank</name>
+<lbs>90</lbs>
+<gals>92.5</gals>
+</opt>
+
+
+</weight>
+
+<weight n="4">
+<name>pylonR1</name>
+
+<weight-lb>0</weight-lb>
+<selected>none</selected>
+<opt>
+<name>none</name>
+<lbs>0</lbs>
+</opt>
+
+<opt>
+<name>R-60</name>
+<lbs>96</lbs>
+</opt>
+
+</weight>
+	
+	
+</sim>
+
+  <environment>
+    <turbulence>
+      <use-cloud-turbulence>true</use-cloud-turbulence>
+    </turbulence>
+  </environment>
+
+<controls>
+	<lighting>
+		<strobe type="bool">true</strobe>
+	</lighting>
+	<gear>
+		<brake-parking type="double">1.0</brake-parking>
+	</gear>  
+	
+		
+<armament>
+			<station n="0">
+				<release type="bool">false</release>
+			</station>
+			<station n="1">
+				<release type="bool">false</release>
+			</station>
+			<station n="2">
+				<release type="bool">false</release>
+			</station>
+			<station n="3">
+				<release type="bool">false</release>
+			</station>
+			<station n="4">
+				<release type="bool">false</release>
+			</station>	
+			
+</armament>	
+		
+	
+</controls>
+
+<input>
+<keyboard include="Nasal/keyboard.xml"/>
+</input> 
+
+
+<instrumentation>
+
+<rwr>
+<display-lighting-intens type="double">0.4</display-lighting-intens>
+<symbology-lighting-intens type="double">1</symbology-lighting-intens>
+</rwr>
+
+<enav><selected type="int">3</selected></enav>
+<radar>
+      <range type="int" archive="y">20</range>
+      <range-factor type="double" archive="n">0.001888</range-factor>
+      <minimized type="bool" archive="y">false</minimized>
+      <selected type="int">3</selected>
+
+
+      <!-- inicio en pruebas -->
+	<enabled type="bool">true</enabled>
+	<az-field type="double">120</az-field>
+	<range type="double">150</range>
+	<range-selected type="double">50</range-selected>
+	<radar2-range type="double">150</radar2-range>
+	<display-rdr type="bool">true</display-rdr>
+	<radar-standby type="int">3</radar-standby>
+	<mode>
+	    <rws type="bool">true</rws>
+	    <tws-auto type="bool">false</tws-auto>
+	</mode>
+
+ </radar> 
+
+    <terrain-radar>
+      <hi-elev>
+        <alt-ft type="double">-9999.9</alt-ft>
+        <lat-deg type="double">-9999.9</lat-deg>
+        <lon-deg type="double">-9999.9</lon-deg>
+        <dist-m type="double">-9999.9</dist-m>
+        <collision-status type="string">initialised</collision-status>
+      </hi-elev>
+      <settings>
+        <mode type="string">extend</mode>
+        <state type="string">off</state>
+        <range-m type="double">2500</range-m>
+        <step-m type="double">250</step-m>
+        <max-climb-rate-fps type="double">120</max-climb-rate-fps>
+        <hi-elev-markers type="bool">false</hi-elev-markers>
+      </settings>
+    </terrain-radar>
+  </instrumentation>
+
+<consumables>
+	<fuel>
+		<tank n="0">
+			<tank-num type="int">0</tank-num>
+			<level-gal_us archive="y">53.44</level-gal_us>
+		</tank>
+		
+		<tank n="1">
+			<tank-num type="int">1</tank-num>
+			<level-gal_us archive="y">53.44</level-gal_us>
+		</tank>
+		
+		<tank n="2">
+			<tank-num type="int">2</tank-num>
+			<level-gal_us archive="y">53.44</level-gal_us>
+		</tank>
+		
+		<tank n="3">
+			<tank-num type="int">3</tank-num>
+			<level-gal_us archive="y">53.44</level-gal_us>
+		</tank>
+
+		<tank n="4">
+			<tank-num type="int">4</tank-num>
+			<level-gal_us archive="y">53.44</level-gal_us>
+		</tank>
+		
+		<tank n="5">
+			<tank-num type="int">5</tank-num>
+			<level-gal_us archive="y">26.5</level-gal_us>
+		</tank>
+		
+		<tank n="6">
+			<tank-num type="int">6</tank-num>
+			<level-gal_us archive="y">26.5</level-gal_us>
+		</tank>
+		
+		<tank n="7">
+			<name>left wing Droptank</name>
+        <selected type="bool">false</selected>
+		</tank>
+		
+		<tank n="8">
+			<name>right wing Droptank</name>
+        <selected type="bool">false</selected>
+		</tank>
+	</fuel>
+</consumables>
+
+ <nasal>
+	<l39>
+		<file>Aircraft/l39/Nasal/strobe.nas</file>
+		<file>Aircraft/l39/Nasal/light.nas</file>
+                <file>Aircraft/l39/Nasal/Lights.nas</file> 
+	</l39>
+	
+	<l39_fuel>
+   <file>Aircraft/l39/Nasal/fuel.nas</file>
+  </l39_fuel>
+  
+  
+       <livery>
+	        <file>Aircraft/l39/Nasal/livery.nas</file>
+      </livery>
+	  
+	  <low>
+      <file>Aircraft/l39/Nasal/low.nas</file>
+    </low>
+	
+	<engines>
+      <file>Aircraft/l39/Nasal/generic-yasim-engine.nas</file>
+      <script>
+        var engine1 = engines.Jet.new(0, 0, 0.01, 5.21, 3, 5, 1, 6);
+        setlistener("sim/signals/fdm-initialized", func
+        {
+          engine1.init();
+        }, 0, 0);
+       </script>
+    </engines>
+
+</nasal>
+
+</PropertyList>

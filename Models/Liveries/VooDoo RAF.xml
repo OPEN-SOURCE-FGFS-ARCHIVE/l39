@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+<sim>
+    <model>
+			<livery>
+				<name type="string">VooDoo RAF</name>
+				<texture>Liveries/VooDoo_RAF.jpg</texture>
+			</livery>
+			
+        
+    </model>
+</sim>
+</PropertyList>

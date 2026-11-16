@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<fx>
+
+<!-- External Sounds -->
+ 
+ <!-- Engines-->
+ 
+     <engine>
+      <name>engine-start-outside</name>
+      <mode>once</mode>
+      <path>Aircraft/l39/Sounds/l39-startup.wav</path>
+      <condition>
+<and>
+  <greater-than>  
+   <property>engines/engine[0]/rpm</property>
+   <value>0.5</value>
+  </greater-than>
+  <not>
+   <property>/sim/current-view/internal</property>
+  </not>
+</and>
+</condition>
+      <volume>
+        <property>engines/engine[0]/n2</property>
+        <factor> 0.09 </factor>
+        <min> 0.3 </min>
+        <max> 0.9 </max>
+      </volume>
+      <pitch>
+        <property>engines/engine[0]/n2</property>
+        <factor> 0.01 </factor>
+	<min> 0.0 </min>
+	<max> 0.9 </max>
+      </pitch>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </engine>
+
+
+    <engine>
+      <name>engine</name>
+      <path>Sounds/jet.wav</path>
+      <mode>looped</mode>
+      <property>engines/engine/running</property>
+      <volume>
+        <property>engines/engine/prop-thrust</property>
+        <type>lin</type>
+        <factor>0.0002353</factor>
+        <!-- Scales to 0-2 for 8500lb engine -->
+      </volume>
+    </engine>
+
+    <engine>
+      <name>whine</name>
+      <path>Aircraft/l39/Sounds/whine.wav</path>
+      <mode>looped</mode>
+	  
+      <property>engines/engine/running</property>
+      <pitch>
+        <property>engines/engine/n1</property>
+        <type>lin</type>
+        <factor>.01</factor>
+      </pitch>
+      <volume>
+        <property>engines/engine/n1</property>
+        <type>log</type>
+        <factor>0.3</factor>
+        <!-- 10-100% rpm == 0.1 - 1 factor -->
+      </volume>
+    </engine>
+  
+   <engine>
+      <name>engine</name>
+      <path>Aircraft/l39/Sounds/jet-blast.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <property>engines/engine[0]/running</property>
+		<not>
+        	<property>sim/current-view/internal</property>
+		
+     	</not>
+      </condition>
+       <position>
+    <x>18.6</x>
+	<y>-0.4</y>
+	<z>2.37</z>
+   </position>
+   <orientation>
+	<x>1.0</x>
+    <y>0.0</y>
+    <z>0</z>
+    <inner-angle>35.0</inner-angle>
+    <outer-angle>90</outer-angle>
+    <outer-gain>0.45</outer-gain>
+   </orientation>
+
+<!-- flyby -->
+		<flyby>
+			<name>fly-by</name>
+			<mode>once</mode>
+			<path>Aircraft/l39/Sounds/Fly-By.wav</path>
+			<condition>
+			<and>
+	    <greater-than>
+	     	<property>velocities/mach</property>
+	     	<value>0.5</value>
+	    </greater-than>
+				<equals>
+					<property>sim/current-view/view-number</property>
+					<value>6</value>
+				</equals>
+				</and>
+				<not>
+         	<property>/sim/current-view/internal</property>
+	 	
+     	</not>
+		</condition>
+			<volume>
+				<property>velocities/airspeed-kt</property>
+				<factor>0.001</factor>
+			</volume>
+			
+		</flyby>
+
+
+
+
+</PropertyList>

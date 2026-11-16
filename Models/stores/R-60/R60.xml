@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+<!--
+Type Short-range Air to Air Missile 
+Place of origin Soviet Union 
+Weight 43.5 kg (96 lb) 
+Length 2090 mm (6 ft 10 in) 
+Diameter 120 mm (4¾ in) 
+
+Launch
+platform MiG-21, MiG-23, MiG-25, MiG-27, 
+MiG-29, MiG-31, Su-15, Su-17, Su-20, Su-22, 
+Su-24, Su-25, Yak-28, Yak-38, Yak-141, Mi-24, 
+BAE Hawk 
+
+-->
+  <path>Aircraft/l39/Models/stores/R-60/R-60.ac</path>
+
+  <animation>
+    <object-name>R-60</object-name>
+  </animation>
+
+</PropertyList>

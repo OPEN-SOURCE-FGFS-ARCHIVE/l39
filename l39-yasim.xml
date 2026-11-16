@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+Aero Vodochody L-39ZA Albatros - YASIM FDM
+StuartC
+Compatible FGFS 2.4+
+
+General characteristics: 
+Crew: 2: student and instructor
+Length: 12.13 m (39 ft 10 in)
+Wingspan: 9.46 m (31 ft 0 in)
+Height: 4.77 m (15 ft 5 in)
+Wing area: 18.8 m2 (202 ft2)
+Empty weight: 3,459 kg (7,625 lb) ** Includes internal fuel + Tip Tanks **
+Warload: 2,425 lbs
+Max takeoff weight: 4,700 kg (10,362 lb)
+Powerplant: 1x Progress AI25-TL turbofan, 16.9 kN (3,800 lbf) 
+Performance:
+Never exceed speed: Mach 0.80
+Maximum speed: 750 km/h (405 knots, 470 mph) 
+    at 4,000 m (16,000 ft)
+Range: 1,000 km (540 nm, 620 mi)
+Service ceiling: 11,500 m (37,730 ft)
+Rate of climb: 22 m/s (4,330 ft/min)
+Wing loading: 250.0 kg/m2 (51.23 lb/ft2)
+Thrust: 3,798 lbs 
+Take-off roll: 530 m (1,700 ft)
+Landing roll: 600 m (2,000 ft)
+
+
+************************************************************************
+-->
+
+<airplane mass="5448">
+
+  <!-- Approach configuration -->
+  <approach speed="120" aoa="5" fuel="0.3">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.4"/>
+    <control-setting axis="/controls/flight/flaps" value="1.0"/>
+    <control-setting axis="/controls/flight/spoilers" value="0.5"/>
+    <control-setting axis="/controls/gear/gear-down" value="1"/>
+  </approach>
+
+  <!-- Cruise configuration -->
+  <cruise speed="385" alt="16400" fuel="0.8">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="1.0"/>
+    <control-setting axis="/controls/flight/flaps" value="0.0"/>
+    <control-setting axis="/controls/gear/gear-down" value="0"/>
+  </cruise>
+
+  <cockpit x="3.249" y="0.0" z="-0.085"/>
+<!-- main fuse -->
+  <fuselage ax="4.0" ay="0" az="-0.8" bx="-5.0" by="0" bz="-0.203" width="1.15" taper="0.8" midpoint="0.5" idrag="0.5"/>
+  <!-- nose -->
+  <fuselage ax="6.0" ay="0" az="-1.039" bx="4" by="0" bz="-0.8" width="0.9" taper="0.0" midpoint="1" idrag="0.5"/>
+<!-- cockpit -->
+  <fuselage ax="4.0" ay="0" az="-0.5" bx="-0.0" by="0" bz="0" width="1.15" taper="0.3" midpoint="0.3" idrag="0.5"/>
+  <!-- intakes -->
+  <fuselage ax="0.8" ay="-0.4" az="-0.2" bx="-4.2" by="0" bz="-0.20" width="0.9" taper="1" midpoint="0.5" idrag="0.5"/>
+   <fuselage ax="0.8" ay="0.4" az="-0.2" bx="-4.2" by="0" bz="-0.20" width="0.9" taper="1" midpoint="0.5" idrag="0.5"/>
+   <!-- tip tanks -->
+   <fuselage ax="1.25" ay="-4.1" az="-0.67" bx="-1.25" by="-4.1" bz="-0.67" width="0.35" taper="0.6" midpoint="0.5" idrag="0.5"/>
+  
+   <fuselage ax="1.25" ay="4.1" az="-0.67" bx="-1.25" by="4.1" bz="-0.67" width="0.35" taper="0.6" midpoint="0.5" idrag="0.5"/>
+  
+  
+  
+  
+  <wing x="-0.4" y="-0.413" z="-0.8"
+        chord="2.53"
+        length="4.62"
+        taper="0.60"
+        sweep="0"
+		incidence="1.2"
+        dihedral="1.2"
+        camber="0.01">
+        <stall aoa="16" width="3" peak="1.3"/>
+        <flap0 start="0.09" end="0.638" lift="1.6" drag="2.15"/>
+        <flap1 start="0.638" end="1.0" lift="1.45" drag="1.2"/>
+
+        <control-input axis="/controls/flight/flaps" control="FLAP0"/>
+        <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>
+        <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
+
+        <control-output control="FLAP0" side="left" prop="/surface-positions/left-flap-pos-norm"/>
+        <control-output control="FLAP0" side="right" prop="/surface-positions/right-flap-pos-norm"/>
+        <control-output control="FLAP0" prop="/surface-positions/flap-pos-norm"/>
+
+        <control-output control="FLAP1" side="left" prop="/surface-positions/left-aileron-pos-norm"/>
+        <control-output control="FLAP1" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
+        <control-output control="FLAP1" prop="/surface-positions/aileron-pos-norm"/>
+
+        <control-speed control="FLAP0" transition-time="10"/>
+        <control-speed control="FLAP1" transition-time="0.2"/>
+  </wing>
+
+  <hstab x="-4.4" y="0.329" z="0.2"
+        chord="1.3"
+        length="1.65"
+        taper="0.61" 
+        sweep="4"
+        dihedral="0">
+        <stall aoa="16" width="5" peak="1.3"/>
+        <flap0 start="0.1" end="1.5" lift="1.5" drag="1.7"/>
+    <flap1 start="0.27" end="0.54" lift="0.5" drag="3"/>
+        <control-input axis="/controls/flight/elevator" control="FLAP0" square="false" src0="-0.5" src1="0.5" dst0="-1.0" dst1="1.0"/>
+        <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
+<control-input axis="/controls/flight/speedbrake" control="FLAP1"/>
+        <control-output control="FLAP0" prop="surface-positions/left-elevator-pos-norm"/>
+        <control-output control="FLAP0" prop="surface-positions/elevator-pos-norm"/>
+<control-output control="FLAP1" prop="/surface-positions/speedbrake-pos-norm"/>
+        <control-speed control="FLAP0" transition-time="2"/>
+		<control-speed control="FLAP1" transition-time="4"/>
+  </hstab>
+
+  <vstab x="-3.2" y="0" z="0.3"
+         chord="2.2"
+         length="2.6"
+         taper="0.32"
+         sweep="35">
+         <stall aoa="14" width="5" peak="1.5"/>
+         <flap0 start="0.3" end="1" lift="1.25" drag="1.2"/>
+
+         <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/>
+         <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>
+
+         <control-speed control="FLAP0" transition-time="1"/>
+  </vstab>
+ 
+  <!-- Engine Ivchenko AI-25TL turbofan -->
+  <jet x="-1.15" y="0.0" z="-0.93"
+       mass="772"
+       thrust="3798"
+       tsfc="0.71"
+       egt="950">
+       <actionpt x="-1.93" y="0.0" z="-0.93"/>
+       <control-input axis="/controls/engines/engine[0]/throttle" control="THROTTLE"/>
+  </jet>
+
+  <!-- nose -->
+  <gear x="4.289" y="-0.112" z="-2.167" 
+        retract-time="7"
+        compression="0.7"
+        spring="1.1"
+        damp="1.4" stiction="1" >
+        <control-input axis="/controls/flight/rudder" control="STEER" square="false"/>
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+
+        <control-output control="EXTEND" prop="/gear/gear[0]/position-norm"/>
+
+        <control-speed control="EXTEND" transition-time="7"/>
+  </gear>
+
+    <!-- left main -->
+  <gear x="-0.470" y="1.941" z="-2.350"
+        retract-time="7"
+        compression="0.8"
+        spring="0.85"
+        damp="2" stiction="1" >
+        <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+
+        <control-output control="EXTEND" prop="gear/gear[1]/position-norm"/>
+
+        <control-speed control="EXTEND" transition-time="7"/>
+  </gear>
+ 
+  <!-- right main -->
+  <gear x="-0.470" y="-1.941" z="-2.350"  
+        retract-time="7"  
+        compression="0.8" 
+        spring="0.85"
+        damp="2" stiction="1" >
+        <control-input axis="/controls/gear/brake-right" control="BRAKE"/> 
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+
+        <control-output control="EXTEND" prop="gear/gear[2]/position-norm"/>
+
+        <control-speed control="EXTEND" transition-time="7"/>
+  </gear>
+
+  <!--  internal fuel capacity in pounds; 1817lb -->
+  <tank x="1" y="0.0" z="-0.63" jet="true" capacity="363.4"/>
+   <tank x="0.8" y="0.0" z="-0.63" jet="true" capacity="363.4"/>
+    <tank x="0.6" y="0.0" z="-0.63" jet="true" capacity="363.4"/>
+	 <tank x="0.4" y="0.0" z="-0.63" jet="true" capacity="363.4"/>
+	  <tank x="0.2" y="0.0" z="-0.63" jet="true" capacity="363.4"/>
+	  <!-- Tip Tanks  344lb each-->
+	   <tank x="0" y="4.1" z="-0.67" jet="true" capacity="180"/>
+	    <tank x="0" y="-4.1" z="-0.67" jet="true" capacity="180"/>
+		<!-- drop tanks  up to 1221lb each-->
+		 <tank x="0" y="2.2" z="-1.3" jet="true" capacity="630"/>
+		  <tank x="0" y="-2.2" z="-1.3" jet="true" capacity="630"/>
+		
+  
+  
+  
+
+ 
+  
+  <ballast x="3.882" y="0.0" z="-1" mass="700"/>
+  
+  <!-- external loads -->
+<weight x="0" y="2.85" z="-1.1" size="0.35" mass-prop="sim/weight[0]/weight-lb"/>
+  <!-- left droptank -->
+<weight x="0" y="2.35" z="-1.1" size="0.55" mass-prop="sim/weight[1]/weight-lb"	/>
+<!-- Gun pod -->
+<weight x="2.5" y="0" z="-1.35" size="0.5" mass-prop="sim/weight[2]/weight-lb"/>
+  
+<!-- right droptank -->
+<weight x="0" y="-2.35" z="-1.1" size="0.55" mass-prop="sim/weight[3]/weight-lb"/>
+  
+<weight x="0" y="-2.85" z="-1.1" size="0.35" mass-prop="sim/weight[4]/weight-lb"/>
+  
+
+
+</airplane>
